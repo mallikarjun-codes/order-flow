@@ -8,6 +8,10 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Parses incoming JSON payloads
 
+// Add these to src/index.js
+const orderRoutes = require('./routes/orderRoutes');
+app.use('/api/orders', orderRoutes);
+
 // Basic Health Check Route
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok', message: 'OrderFlow API is running' });
