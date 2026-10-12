@@ -19,4 +19,12 @@ async function deductInventory(client, productId, quantity) {
     return result.rows[0];
 }
 
-module.exports = { deductInventory };
+// Add to the top of the file
+async function getAllProducts(client) {
+    const query = `SELECT id, name, sku, price, stock_quantity FROM products ORDER BY id ASC;`;
+    const result = await client.query(query);
+    return result.rows;
+}
+
+// Update your exports to include it
+module.exports = { deductInventory, getAllProducts };

@@ -8,6 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Parses incoming JSON payloads
 
+const inventoryRoutes = require('./routes/inventoryRoutes');
+app.use('/api/inventory', inventoryRoutes);
+
 // Add these to src/index.js
 const orderRoutes = require('./routes/orderRoutes');
 app.use('/api/orders', orderRoutes);
