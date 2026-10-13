@@ -1,9 +1,7 @@
-// src/controllers/orderController.js
 const { processCheckout } = require('../services/orderService');
 
 async function createOrder(req, res) {
     try {
-        // We expect { customerId: 1, items: [{ productId: 1, quantity: 2 }] }
         const { customerId, items } = req.body;
 
         if (!customerId || !items || items.length === 0) {

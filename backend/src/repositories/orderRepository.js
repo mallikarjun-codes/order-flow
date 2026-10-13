@@ -1,5 +1,3 @@
-// src/repositories/orderRepository.js
-
 async function createOrder(client, customerId, totalAmount) {
     const query = `
         INSERT INTO orders (customer_id, total_amount, status) 

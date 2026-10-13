@@ -1,5 +1,3 @@
--- src/db/schema.sql
-
 -- 1. Products Table
 CREATE TABLE IF NOT EXISTS products (
     id SERIAL PRIMARY KEY,
