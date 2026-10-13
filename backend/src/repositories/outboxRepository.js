@@ -1,5 +1,3 @@
-// src/repositories/outboxRepository.js
-
 async function createOutboxEvent(client, eventType, payload) {
     const query = `
         INSERT INTO outbox_events (event_type, payload, status) 
@@ -8,9 +6,6 @@ async function createOutboxEvent(client, eventType, payload) {
     await client.query(query, [eventType, JSON.stringify(payload)]);
 }
 
-// Add these to src/repositories/outboxRepository.js
-
-// Fetches pending events and LOCKS them so other instances don't grab them
 async function getPendingEvents(client, limit = 10) {
     const query = `
         SELECT * FROM outbox_events 
